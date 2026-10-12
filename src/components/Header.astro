@@ -1,0 +1,23 @@
+---
+const pathname = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/videos', label: 'Videos' },
+  { href: '/audio', label: 'Audio' },
+  { href: '/questions', label: 'Q&A' },
+  { href: '/resources', label: 'Resources' },
+];
+---
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="Raising Them Ready home">
+      <img src="/images/icon-49.svg" alt="" width="28" height="28" />
+      <span>Raising Them Ready</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      {links.map(({ href, label }) => <a href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>)}
+    </nav>
+    <a class="button button-small" href="#newsletter">Subscribe</a>
+  </div>
+</header>
